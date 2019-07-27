@@ -8,12 +8,9 @@ O banco de dados MySQL está no arquivo cotabox.sql na raiz do projeto
 o projeto foi disponibilizado em:
 
 github:
-
+https://github.com/jcpossidonio/cotaboxchallenge
 
 uma hospedagem que possuo:
 http://poltronadecinema.com.br/cotaboxchallenge
 
-Qualquer dúvida fico a disposição
 Jean Carlos Possidônio da Silva
-jc.possidonio@gmail.com
-14 998525177
