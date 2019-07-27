@@ -1,0 +1,21 @@
+<div class="container" style="max-width:100%;">
+  <div class="alert alert-danger">
+  <h2>Página Indisponível</h2><br>
+  Infelizmente a página esta gerando um problema, <br>Você pode tentar acessar novamente em alguns minutos <br>ou entrar em contato com o responsável pelo site para solucionar o problema.
+  </div>
+  
+  <h3>Erro: <?php echo $this->message ?></h3>
+
+  <?php if (isset($this->exception)): ?>
+  
+  <h4>Informação: <?php echo $this->exception->getMessage() ?></h4>
+
+  <pre><?php echo $this->exception->getTraceAsString() ?>
+  </pre>
+
+  <h3>Parâmetros do Request:</h3>
+  <pre><?php echo $this->escape(var_export($this->request->getParams(), true)) ?>
+  </pre>
+
+  <?php endif ?>
+</div>

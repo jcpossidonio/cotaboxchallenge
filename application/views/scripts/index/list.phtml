@@ -1,0 +1,71 @@
+<?php
+// Pega os itens enviados pelo controlador
+$itens = $this->itens;
+?>
+
+<div class="container">
+
+    <?php if(!isset($itens) OR count($itens) == 0) { ?>
+    <div class="col-xs-12">
+        <div class="alert center alert-warning col-xs-12">
+            <b>No entries found</b>
+        </div>
+    </div>
+    <?php } else { ?>
+	<div class="col-xs-12 col-sm-6">
+		<table class="table tablepart table-bordered">
+			<thead>
+				<tr>
+					<th></th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th class="center">Participation</th>
+					<th class="center">Remove</th>
+				</tr>
+			</thead>
+			<tbody>
+                <?php foreach($itens as $key => $item) { ?>
+				<tr>
+					<td><?php echo $key+1; ?></td>
+					<td><?php echo $item['dat_first_name']; ?></td>
+					<td><?php echo $item['dat_last_name']; ?></td>
+					<td class="center"><?php echo $item['dat_participation']; ?>%</td>
+					<td class="center">
+						<a class="remove" data-id="<?php echo $item['dat_id']; ?>" href="javascript:void(0)">
+							<span class="glyphicon glyphicon-remove"></span>
+						</a>
+					</td>
+				</tr>
+                <?php } ?>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="col-xs-12 col-sm-6">
+		<div id="donutchart" ></div>
+	</div>
+    <?php } ?>
+</div>
+
+<!-- GRAFICO GOOGLE CHARTS -->
+<script>
+	google.charts.load("current", {packages:["corechart"]});
+	google.charts.setOnLoadCallback(drawChart);
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable([
+			['First Name', 'Participation'],
+            <?php foreach($itens as $key => $item) { echo("['".$item['dat_first_name']."',".number_format($item['dat_participation'],2,'.','')."],") ; }?>
+			]);
+
+		var options = {
+			colors: ['#15B999', '#B1B3B3', '#2D97DE', '#9C55B8', '#EA4B35'],
+			pieHole: 0.5,
+		};
+
+		var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+		chart.draw(data, options);
+	}
+</script>
+
+<!-- AJAX e JS index -->
+<script src="./application/views/scripts/index/list.js"></script>

@@ -1,0 +1,31 @@
+<?php
+$titulo = "Cotabox - Challenge";
+?>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title><?php echo($titulo); ?></title>
+  <base href="http://<?=$_SERVER['HTTP_HOST'] . $this->baseUrl()?>/" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <link rel="icon" type="image/png" href="https://cotabox.com.br/assets/images/favicon.png" />
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="content-language" content="pt-br">
+  
+  <!-- BOOTSTRAP CSS --><link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- BOOTSTRAP JS --><script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+  <!-- MASK JS --><script src="./library/mask.js"></script>
+  <!-- MASK INI JS --><script src="./library/maskini.js"></script>
+  <!-- Google Charts JS --><script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- CSS GLOBAL--><link href="css/global.css" rel="stylesheet" rel='stylesheet' type='text/css'>
+  
+  <body>
+
+      <?php echo $this->layout()->content;?>        
+    
+  </body>
+  </html>
